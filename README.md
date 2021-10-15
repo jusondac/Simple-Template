@@ -1,4 +1,4 @@
-# Simple Template
+# Simple Template Rails
 
 [![forthebadge](https://forthebadge.com/images/badges/made-with-ruby.svg)](https://forthebadge.com)
 [![forthebadge](https://forthebadge.com/images/badges/built-with-love.svg)](https://forthebadge.com)
@@ -25,6 +25,20 @@ Included Gem
 
 # Getting Started
 
+Simple Rails App is a template application quickly create and make a example or an portfolio.
+
 #### Requirement
+You need some requirement for this app
+- Ruby 2.6 or higher
+- Rails 6 or Higher
+- Yarn v1.22.5 or Higher
+
 
 #### Create new app
+```
+rails new myapp -m https://raw.githubusercontent.com/jusondac/simple-template-rails/master/template.rb
+```
+to run your app 
+```cd myapp``` 
+and run 
+```rails server```
