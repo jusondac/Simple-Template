@@ -105,7 +105,7 @@ end
 end
 
 def setup_table
-  generate(:model, 'role name:string')
+  generate :model, 'Role', 'name:string'
   inject_into_file 'db/seed.rb', after: '#   Character.create(name: "Luke", movie: movies.first)' do
     role = ['master','admin','user']
     role.each do |role_name|
@@ -134,7 +134,7 @@ after_bundle do
   setup_bootstrap
   setup_users
   setup_table
-  
+
   add_home_page
   copy_templates
 
