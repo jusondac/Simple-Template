@@ -1,0 +1,17 @@
+@import 'bootstrap/scss/bootstrap';
+
+.navbar {background-color: #1B408E; color:'white'; text-decoration:none;}
+.card {
+  width: 40vw;
+  border: none;
+  border-radius: 30px;
+  border-bottom: 6px solid #DCDDE0;
+  border-right: 6px solid #DCDDE0;
+  border-left: 2px solid #DCDDE0;
+  border-top: 2px solid #DCDDE0;
+}
+.btn-shadow {
+  border-radius: 10px;
+  border-bottom: 6px solid #DCDDE0;
+  border-right: 6px solid #DCDDE0;
+}

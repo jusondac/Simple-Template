@@ -1,0 +1,20 @@
+<div class="navbar navbar-inverse navbar-fixed-top py-4" role="navigation">
+   <div class="container">
+     <div class="navbar-header">
+       <h3><a class="text-white text-decoration-none" href="/">Sale</a></h3>
+     </div>
+     <ul class="nav navbar-nav">
+     </ul>
+     <div class="nav navbar-nav navbar-right">
+       <div class="d-flex">
+         <% if user_signed_in? %>
+           <%= link_to current_user.email, edit_user_registration_path, class:'btn btn-info btn-lg mr-2' %>
+           <%= link_to "Log Out" , destroy_user_session_path, method: :delete, class:'btn btn-danger btn-lg mr-2'  %>
+         <% else %>
+           <%= link_to "Sign In", user_session_path, class:'btn btn-success btn-lg mr-2' %>
+           <%= link_to "Register", new_user_registration_path, class:'btn btn-primary btn-lg' %>
+         <% end %>
+       </div>
+     </div>
+   </div>
+</div>
