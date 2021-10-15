@@ -17,7 +17,6 @@ def add_template_to_source_path
       'https://github.com/jusondac/Simple-Template.git',
       tempdir
     ].map(&:shellescape).join(' ')
-
     if (branch = __FILE__[%r{Simple-Template/(.+)/template.rb}, 1])
       Dir.chdir(tempdir) { git checkout: branch }
     end
@@ -131,17 +130,16 @@ add_gems
 
 after_bundle do
   set_application_name
+
   setup_bootstrap
-
-  # for some reasone I adding this one as execption for sqlite :)
-  rails_command 'db:setup'
-
   setup_users
   setup_table
+  
   add_home_page
   copy_templates
+
   puts ""
-  puts "Your app finnaly done create!! \u{1f355} \n"
+  puts "Your app finnaly done create!! \u{1f355} 🎉 \n"
   puts 'To get started with your new app: \n'
   puts "cd #{app_name} - Switch to your new app's directory."
 end
