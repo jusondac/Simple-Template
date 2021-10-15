@@ -106,12 +106,13 @@ end
 
 def setup_table
   generate :model, 'Role', 'name:string'
-  inject_into_file 'db/seed.rb', after: '#   Character.create(name: "Luke", movie: movies.first)' do
-    role = ['master','admin','user']
-    role.each do |role_name|
-      Role.create(name:role_name)
-    end
-  end
+  seeds_conf =<<-CODE
+Role.create(name:'master')
+Role.create(name:'master')
+Role.create(name:'master')
+  CODE
+
+  insert_into_file 'db/seed.rb', seeds_conf, after: '#   Character.create(name: "Luke", movie: movies.first)'
   rails_command 'db:migrate'
 end
 
