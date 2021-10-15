@@ -113,6 +113,7 @@ Role.create(name:'master')
   CODE
 
   insert_into_file 'db/seeds.rb', seeds_conf, after: '#   Character.create(name: "Luke", movie: movies.first)'
+  rails_command 'db:migrate'
   rails_command 'db:seed'
 end
 
