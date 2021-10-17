@@ -132,6 +132,8 @@ add_gems
 
 after_bundle do
   rails_command 'db:setup'
+  rails_command 'db:migrate'
+
   set_application_name
 
   setup_bootstrap
