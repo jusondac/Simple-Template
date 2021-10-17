@@ -108,8 +108,8 @@ def setup_table
   generate :model, 'Role', 'name:string'
   seeds_conf =<<-CODE
 Role.create(name:'master')
-Role.create(name:'master')
-Role.create(name:'master')
+Role.create(name:'admin')
+Role.create(name:'user')
   CODE
 
   insert_into_file 'db/seeds.rb', seeds_conf, after: '#   Character.create(name: "Luke", movie: movies.first)'
@@ -131,6 +131,7 @@ add_template_to_source_path
 add_gems
 
 after_bundle do
+  rails_command 'db:setup'
   set_application_name
 
   setup_bootstrap
