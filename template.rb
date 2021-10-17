@@ -131,9 +131,8 @@ add_template_to_source_path
 add_gems
 
 after_bundle do
-  rails_command 'db:setup'
+  rails_command 'db:create'
   rails_command 'db:migrate'
-
   set_application_name
 
   setup_bootstrap
