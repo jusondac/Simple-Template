@@ -15,10 +15,13 @@
  *= require_self
  */
  :root {
-   --font-default: 'Roboto', sans-serif;
+   --font-default:'Oswald', sans-serif;
  }
+ $bg-default: #C996CC;
+ $bg-text: #1C0C5B;
+ $bg-bright: #916BBF;
+ $bg-dark: #916BBF;
 
  * {
-   font-family: var(--font-default);
+  font-family: var(--font-default);
  }
-

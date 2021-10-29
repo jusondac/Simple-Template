@@ -1,32 +1,43 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>SimpleTemplate</title>
+    <title><%= Rails.application.class.parent_name %></title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
+    <!-- Google font -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Oswald&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet">
+    <!-- Font awesome -->
+    <script src="https://kit.fontawesome.com/cfac088083.js" crossorigin="anonymous"></script>
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body>
-    <%= render "base/navbar" %>
-    <% flash.each do |type, message| %>
-      <div class="alert <%= flash_class type %> alert-dismissable">
-        <div class="d-flex justify-content-between">
-          <div class="text-center pt-3">
-            <p><%= message %></p>
-          </div>
-          <div class="pt-3">
-            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+    <%= render "base/sidebar" %>
+    <% if user_signed_in? %>
+      <div class="main">
+        <%= render "base/navbar" %>
+        <% flash.each do |type, message| %>
+        <div class="alert <%= flash_class type %> alert-dismissable">
+          <div class="d-flex justify-content-between">
+            <div class="text-center pt-3">
+              <p><%= message %></p>
+            </div>
+            <div class="pt-3">
+              <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+            </div>
           </div>
         </div>
+        <% end %>
+        <div class="content">
+          <%= yield %>
+        </div>
       </div>
+    <% else %>
+      <%= yield %>
     <% end %>
-    <div class="container pt-5">
-       <%= yield %>
-    </div>
   </body>
 </html>
