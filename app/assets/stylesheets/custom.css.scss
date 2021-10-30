@@ -9,8 +9,21 @@ $bg-text: #1C0C5B;
 $bg-bright: #916BBF;
 $bg-dark: #916BBF;
 
+.nav-title {display: flex; align-items: center; margin: 0px 10px;font-size: 20px;
+  .fa {font-size: 20px;margin-right: 5px;}
+}
 .navbar {background-color: #fff; color:$bg-text; text-decoration:none; border-bottom: 1px solid $bg-text}
-.mr-2 {margin-right:1rem;}
+.mr-2 {margin-right:1rem}
+
+.active {
+  border-top-right-radius: 20px;
+  border-bottom-right-radius: 20px;
+  color: white;
+  background: $bg-text;
+  .nav-link {
+    color: #fff;
+  }
+}
 .content {
   padding:18px;
   box-shadow: 10px 10px 77px -28px rgba(0,0,0,0.75) inset;
@@ -51,30 +64,57 @@ $bg-dark: #916BBF;
 }
 
 // SIDEBAR
-
-.nav-link{
-  margin-left: 20px;
-  margin-right: 20px;
-  font-size: 20px;
-  font-family: $font-default;
-  color: $bg-text;
-  &:hover {
-    transition: all 0.9s;
+.nav-item {
+  padding: 0px 10px;
+  margin: 0px 5px;
+  margin-top: 5px;
+  border-radius: 10px;
+  color: white;
+  .nav-link {
+    &:hover {
+      transition: all 0.5s;
+      color: #fff;
+    }
+  }
+  .nav-second-level {
+    .nav-item {
+      .nav-link {
+        .nav-link-text {
+          color: white;
+        }
+      }
+    }
+  }
+  &:hover, &:focus {
+    transition: all 0.5s;
     background: $bg-text;
     color: #fff;
   }
+}
+
+.nav-link{
+  font-size: 20px;
+  font-family: $font-default;
+  color: $bg-text;
   // COLLAPSE
-  &-collapse:after {
-    float: right;
-    padding-right: 10px;
-    content: '\f067';
-    font-family: 'FontAwesome';
+  &-collapse {
+    &:after {
+      float: right;
+      padding-right: 10px;
+      content: '\f067';
+      font-family: 'FontAwesome';
+    }
   }
   // SHOW
-  &-show:after {
-    float: right;
-    content: '\f068';
-    font-family: 'FontAwesome';
+  &-show{
+    &:after {
+      float: right;
+      content: '\f068';
+      font-family: 'FontAwesome';
+    }
+  }
+  .fa {
+    font-size: 15px;
   }
 }
 
@@ -106,8 +146,6 @@ $bg-dark: #916BBF;
   line-height: 12px;
 }
 
-
-
 // MEDIA QUERY
 
 @media (min-width: 992px) {
@@ -116,7 +154,6 @@ $bg-dark: #916BBF;
     position: absolute;
     width: 250px;
     height: 100vh;
-    // background: $bg-default;
     background: #fff;
     border-right: 2px solid $bg-text;
   }

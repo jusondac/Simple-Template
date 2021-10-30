@@ -16,3 +16,13 @@ require("channels")
 // const images = require.context('../images', true)
 // const imagePath = (name) => images(name, true)
 import "bootstrap";
+$(document).ready(function() {
+  $('.nav-link-collapse').on('click', function() {
+    $('.nav-link-collapse').not(this).removeClass('nav-link-show');
+    $(this).toggleClass('nav-link-show');
+  });
+  $('.nav-item').on('click', function(){
+    $('.nav-item').not(this).removeClass('active');
+    $(this).toggleClass('active');
+  })
+});
