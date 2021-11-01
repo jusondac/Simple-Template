@@ -112,9 +112,7 @@ Role.create(name:'admin')
 Role.create(name:'user')
   CODE
 
-  insert_into_file 'db/seed.rb', seeds_conf, after: '#   Character.create(name: "Luke", movie: movies.first)'
   rails_command 'db:migrate'
-  rails_command 'db:seed'
 end
 
 def add_home_page

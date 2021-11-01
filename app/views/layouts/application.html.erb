@@ -16,7 +16,6 @@
   </head>
 
   <body>
-    <%= render "base/sidebar" %>
     <% if user_signed_in? %>
       <div class="main">
         <%= render "base/navbar" %>
@@ -36,6 +35,7 @@
           <%= yield %>
         </div>
       </div>
+      <%= render "base/sidebar" %>
     <% else %>
       <%= yield %>
     <% end %>
