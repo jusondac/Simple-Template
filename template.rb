@@ -10,14 +10,14 @@ require 'shellwords'
 def add_template_to_source_path
   if __FILE__ =~ %r{\Ahttps?://}
     require 'tmpdir'
-    source_paths.unshift(tempdir = Dir.mktmpdir('Simple-Template-'))
+    source_paths.unshift(tempdir = Dir.mktmpdir('simple-template-rails'))
     at_exit { FileUtils.remove_entry(tempdir) }
     git clone: [
       '--quiet',
-      'https://github.com/jusondac/Simple-Template.git',
+      'https://github.com/jusondac/simple-template-rails.git',
       tempdir
     ].map(&:shellescape).join(' ')
-    if (branch = __FILE__[%r{Simple-Template/(.+)/template.rb}, 1])
+    if (branch = __FILE__[%r{simple-template-rails/(.+)/template.rb}, 1])
       Dir.chdir(tempdir) { git checkout: branch }
     end
   else
