@@ -16,12 +16,16 @@
  */
  :root {
    --font-default:'Oswald', sans-serif;
+   --bg-default: #C996CC;
+   --bg-text: #1C0C5B;
+   --bg-bright: #916BBF;
+   --bg-dark: #916BBF;
  }
- $bg-default: #C996CC;
- $bg-text: #1C0C5B;
- $bg-bright: #916BBF;
- $bg-dark: #916BBF;
 
  * {
   font-family: var(--font-default);
+ }
+
+ body {
+  background: #082032;
  }

@@ -2,170 +2,29 @@
 
 // VARIABLE
 $uniq_font:  'Lobster', cursive;
-$font-default: 'Oswald', sans-serif;;
+$font-default:  'Roboto', sans-serif;
 
 $bg-default: #C996CC;
 $bg-text: #1C0C5B;
 $bg-bright: #916BBF;
 $bg-dark: #916BBF;
 
-.nav-title {display: flex; align-items: center; margin: 0px 10px;font-size: 20px;
-  .fa {font-size: 20px;margin-right: 5px;}
-}
-.navbar {background-color: #fff; color:$bg-text; text-decoration:none; border-bottom: 1px solid $bg-text;
-  box-shadow: 10px 10px 88px -64px rgba(0,0,0,0.75);
-  -webkit-box-shadow: 10px 10px 88px -64px rgba(0,0,0,0.75);
-  -moz-box-shadow: 10px 10px 88px -64px rgba(0,0,0,0.75);
-}
 .mr-2 {margin-right:1rem}
 .btn-info {border-bottom: 5px solid #113CFC; border-right: 5px solid #113CFC;}
 .btn-danger {border-bottom: 5px solid #8E0505; border-right: 5px solid #8E0505;}
-.active {
-  border-top-right-radius: 20px;
-  border-bottom-right-radius: 20px;
-  color: white;
-  background: $bg-text;
-  .nav-link {
-    color: #fff;
-  }
-}
-.content {
-  padding:20px;
-}
-.profile_box {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: $bg-text;
-  height: 30%;
-  width: 290px;
-  margin-bottom: 20px;
-  &_role {
-    color: $bg-default;
-    font-size: 40px;
-    background: $bg-text;
-  }
-}
-.card {
-  width: 40vw;
-  border: none;
-  border-radius: 30px;
-  border-bottom: 6px solid #DCDDE0;
-  border-right: 6px solid #DCDDE0;
-  border-left: 2px solid #DCDDE0;
-  border-top: 2px solid #DCDDE0;
-}
-.btn-shadow {
-  border-radius: 10px;
-  border-bottom: 6px solid #DCDDE0;
-  border-right: 6px solid #DCDDE0;
-}
-.btn-rounded {
-  border-radius: 10px;
-}
+nav { background-color: #261C2C; }
+.nav-link { color: white; transition: all 5s; }
+.nav-option { color: #fff; display: flex; justify-content: center; align-items: center; height: 70px; width: 100vw; background-color: #3D56B2; }
+.nav-item a { color: #fff; }
+.navbar-brand { color: white; }
+.btn-primary {background-color:#1597E5;border-right: 5px solid #69DADB;border-bottom: 5px solid #69DADB;}
+.btn-secondary {background-color: #082032;border-right: 5px solid #334756;border-bottom: 5px solid #334756;}
+.btn-success {background-color: #1B8057;border-right: 5px solid #55A44E;border-bottom: 5px solid #55A44E;}
+.btn-danger {background-color: #F73859;border-right: 5px solid #F06868;border-bottom: 5px solid #F06868;}
+.btn-warning {background-color: #D98C00;border-right: 5px solid #FFA400;border-bottom: 5px solid #FFA400;}
+.btn-info {background-color: #3D56B2;border-right: 5px solid #5C7AEA;border-bottom: 5px solid #5C7AEA;}
+.btn-light {background-color: #cee5d0;color: black;border-right: 5px solid #F7F6F2;border-bottom: 5px solid #F7F6F2;}
+.btn-dark {background-color: #11052C;border-right: 5px solid #3D087B;border-bottom: 5px solid #3D087B;}
+.btn-link {background-color: #5F7A61; border-right: 5px solid #D5EEBB;border-bottom: 5px solid #D5EEBB}
 
-// SIDEBAR
-.nav-item {
-  padding: 0px 10px;
-  margin: 0px 5px;
-  margin-top: 5px;
-  border-radius: 10px;
-  color: white;
-  .nav-link {
-    &:hover {
-      transition: all 0.5s;
-      color: #fff;
-    }
-  }
-  .nav-second-level {
-    .nav-item {
-      .nav-link {
-        .nav-link-text {
-          color: white;
-        }
-      }
-    }
-  }
-  &:hover, &:focus {
-    transition: all 0.5s;
-    background: $bg-text;
-    color: #fff;
-  }
-}
-
-.nav-link{
-  font-size: 20px;
-  font-family: $font-default;
-  color: $bg-text;
-  // COLLAPSE
-  &-collapse {
-    &:after {
-      float: right;
-      padding-right: 10px;
-      content: '\f067';
-      font-family: 'FontAwesome';
-    }
-  }
-  // SHOW
-  &-show{
-    &:after {
-      float: right;
-      content: '\f068';
-      font-family: 'FontAwesome';
-    }
-  }
-  .fa {
-    font-size: 15px;
-  }
-}
-
-.nav-item ul.nav-second-level {
-  padding-left: 0;
-}
-
-.nav-item ul.nav-second-level > .nav-item {
-  padding-left: 20px;
-}
-.navbar-icon-top .navbar-nav .nav-link > .fa {
-  position: relative;
-  width: 36px;
-  font-size: 24px;
-}
-
-.navbar-icon-top .navbar-nav .nav-link {
-  .fa {
-    .badge {
-      font-size: 0.75rem;
-      position: absolute;
-      right: 0;
-      font-family: sans-serif;
-    }
-  }
-}
-
-.navbar-icon-top .navbar-nav .nav-link > .fa {
-  line-height: 12px;
-}
-
-// MEDIA QUERY
-
-@media (min-width: 992px) {
-  .sidenav {
-    padding:0;
-    position: fixed;
-    top:0;
-    width: 290px;
-    height: 100%;
-    background: #fff;
-    border-right: 2px solid $bg-text;
-  }
-
-  .main {
-    margin-left: 290px;
-    padding: 0;
-  }
-
-  .navbar-expand-lg .sidenav {
-    flex-direction: column;
-  }
- }
+.content {margin-top: 10vw}

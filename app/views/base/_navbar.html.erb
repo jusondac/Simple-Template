@@ -1,18 +1,50 @@
-<div class="navbar navbar-inverse sticky-top py-4 stiky-top" role="navigation">
-   <div class="navbar-header">
-     <h3><a class="text-decoration-none" href="/"><%= Rails.application.class.parent_name %></a></h3>
-   </div>
-   <ul class="nav navbar-nav">
-   </ul>
-   <div class="nav navbar-nav navbar-right">
-     <div class="d-flex">
-       <% if user_signed_in? %>
-         <%= link_to '<i class="fas fa-user"></i>'.html_safe, edit_user_registration_path, class:'btn btn-info btn-lg btn-rounded mr-2' %>
-         <%= link_to "<i class='fas fa-sign-out-alt'></i>".html_safe , destroy_user_session_path, method: :delete, class:'btn btn-danger btn-rounded btn-lg mr-2'  %>
-       <% else %>
-         <%= link_to "Sign In", user_session_path, class:'btn btn-success btn-lg mr-2' %>
-         <%= link_to "Register", new_user_registration_path, class:'btn btn-primary btn-lg' %>
-       <% end %>
-     </div>
-   </div>
+<nav class="navbar navbar-expand-lg py-1">
+  <a class="navbar-brand" href="#"><%= Rails.application.class.parent_name %></a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse accordion" id="navbarText">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item" style="">
+        <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item" style="">
+        <span class="nav-link collapsed" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+          Payment
+        </span>
+      </li>
+      <li class="nav-item" style="">
+        <span class="nav-link collapsed" type="button" data-toggle="collapse" data-target="#collapseExample1" aria-expanded="false" aria-controls="collapseExample1">
+          Mutation
+        </span>
+      </li>
+      <li class="nav-item" style="">
+        <a class="nav-link" href="#">Pricing</a>
+      </li>
+    </ul>
+    <span class="navbar-text">
+      <% if user_signed_in? %>
+        <%= link_to '<i class="fas fa-user"></i>'.html_safe, edit_user_registration_path, class:'btn btn-info btn-sm btn-rounded mr-2' %>
+        <%= link_to "<i class='fas fa-sign-out-alt'></i>".html_safe , destroy_user_session_path, method: :delete, class:'btn btn-danger btn-rounded btn-sm mr-2'  %>
+      <% else %>
+        <%= link_to "Sign In", user_session_path, class:'btn btn-success btn-lg mr-2' %>
+        <%= link_to "Register", new_user_registration_path, class:'btn btn-primary btn-lg' %>
+      <% end %>
+    </span>
+  </div>
+</nav>
+<div class="nav-option-list collapse __web-inspector-hide-shortcut__" id="collapseExample">
+  <div class="nav-option">
+    <div class="nav-item ml-4">
+      <a href="#">History</a>
+    </div>
+    <div class="nav-item ml-4">
+      <a href="#">Via List</a>
+    </div>
+  </div>
+</div>
+<div class="nav-option-list collapse" id="collapseExample1">
+  <div class="nav-option">
+    Some placeholder content for the collapse component. This panel is hidden by default but revealed when the user activates the relevant trigger.
+  </div>
 </div>

@@ -7,8 +7,8 @@
     <!-- Google font -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Oswald&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
     <!-- Font awesome -->
     <script src="https://kit.fontawesome.com/cfac088083.js" crossorigin="anonymous"></script>
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
@@ -32,10 +32,11 @@
         </div>
         <% end %>
         <div class="content">
-          <%= yield %>
+          <div class="d-flex justify-content-center">
+            <%= yield %>
+          </div>
         </div>
       </div>
-      <%= render "base/sidebar" %>
     <% else %>
       <%= yield %>
     <% end %>
