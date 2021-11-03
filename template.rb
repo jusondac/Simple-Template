@@ -40,7 +40,7 @@ def set_application_name
 end
 
 def setup_bootstrap
-  run 'yarn add bootstrap jquery @popperjs/yarn'
+  run 'yarn add bootstrap jquery @popperjs/core'
 
   # Update environment.js
   bootstrap_conf = <<-CODE
