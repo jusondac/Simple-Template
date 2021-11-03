@@ -40,7 +40,7 @@ def set_application_name
 end
 
 def setup_bootstrap
-  run 'yarn add bootstrap jquery popper.js'
+  run 'yarn add bootstrap jquery @popperjs/yarn'
 
   # Update environment.js
   bootstrap_conf = <<-CODE
@@ -142,6 +142,6 @@ after_bundle do
 
   puts ""
   puts "Your app finnaly done create!! \u{1f355} 🎉 \n"
-  puts 'To get started with your new app: \n'
   puts "cd #{app_name} - Switch to your new app's directory."
+  puts "then type 'rails s'"
 end
