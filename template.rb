@@ -45,13 +45,11 @@ def setup_bootstrap
   # Update environment.js
   bootstrap_conf = <<-CODE
 const webpack = require('webpack')
-environment.plugins.prepend('Provide',
-  new webpack.ProvidePlugin({
+environment.plugins.prepend('Provide',new webpack.ProvidePlugin({
     $: 'jquery',
     jQuery: 'jquery',
     Popper: ['popper.js', 'default']
-  })
-)
+  }))
   CODE
 
   insert_into_file "config/webpack/environment.js",  bootstrap_conf , before: "module.exports = environment"
@@ -95,7 +93,7 @@ end
 
 def setup_table
   generate :model, 'Role', 'name:string'
-  generate :model, 'Page', 'parent_id:integer', 'path:string',
+  generate :model, 'Page', 'parent_id:integer', 'path:string'
 
   rails_command 'db:migrate'
 end
