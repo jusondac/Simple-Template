@@ -45,11 +45,13 @@ def setup_bootstrap
   # Update environment.js
   bootstrap_conf = <<-CODE
 const webpack = require('webpack')
-environment.plugins.append('Provide',new webpack.ProvidePlugin({
-  $: 'jquery',
-  jQuery: 'jquery',
-  Popper: ['popper.js', 'default']
-}))
+environment.plugins.prepend('Provide',
+  new webpack.ProvidePlugin({
+    $: 'jquery',
+    jQuery: 'jquery',
+    Popper: ['popper.js', 'default']
+  })
+)
   CODE
 
   insert_into_file "config/webpack/environment.js",  bootstrap_conf , before: "module.exports = environment"
@@ -78,24 +80,11 @@ def setup_users
   environment "config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }",
               env: 'development'
 
-  content = <<-CODE
-unauthenticated :user do
-  devise_scope :user do
-    root to: 'unauthenticated#index', as: :unauthenticated_root
-  end
-end
-
-authenticated :user do
-  root to: 'home#index', as: :authenticated_root
-end
-  CODE
-
   # Generate Devise views via Bootstrap
   generate 'devise:views'
 
    # Create Devise User
   generate :devise, 'User', 'first_name', 'last_name', 'role_id:integer'
-  insert_into_file "config/routes.rb", "\n" + content + "\n", after: "Rails.application.routes.draw do"
   if Gem::Requirement.new("> 5.2").satisfied_by? rails_version
     gsub_file 'config/initializers/devise.rb',
       /  # config.secret_key = .+/,
@@ -106,11 +95,7 @@ end
 
 def setup_table
   generate :model, 'Role', 'name:string'
-  seeds_conf =<<-CODE
-Role.create(name:'master')
-Role.create(name:'admin')
-Role.create(name:'user')
-  CODE
+  generate :model, 'Page', 'parent_id:integer', 'path:string',
 
   rails_command 'db:migrate'
 end
