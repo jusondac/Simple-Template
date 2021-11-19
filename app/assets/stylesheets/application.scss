@@ -1,4 +1,3 @@
-/*
  * This is a manifest file that'll be compiled into application.css, which will include all the files
  * listed below.
  *
@@ -14,18 +13,14 @@
  *= require_tree .
  *= require_self
  */
- :root {
-   --font-default:'Oswald', sans-serif;
-   --bg-default: #C996CC;
-   --bg-text: #1C0C5B;
-   --bg-bright: #916BBF;
-   --bg-dark: #916BBF;
- }
 
- * {
-  font-family: var(--font-default);
- }
+@import 'config/fonts';
+@import 'config/colors';
+@import 'config/bootstrap_variables';
+//
+// // external libraries
+@import 'bootstrap/scss/bootstrap';
 
- body {
-  background: #082032;
- }
+// // CSS partials
+@import "components/index";
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
