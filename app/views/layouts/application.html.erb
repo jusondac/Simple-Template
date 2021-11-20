@@ -9,38 +9,59 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css">
     <!-- Font awesome -->
     <script src="https://kit.fontawesome.com/cfac088083.js" crossorigin="anonymous"></script>
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
   </head>
 
   <body>
     <% if user_signed_in? %>
-      <div class="main">
+      <%= render "base/sidebar" %>
+      <section class="home-section">
         <%= render "base/navbar" %>
+        <div class="home-content">
+          <i class='bx bx-menu' ></i>
+          <span class="text">Dashboard</span>
+        </div>
         <% flash.each do |type, message| %>
-        <div class="alert <%= flash_class type %> alert-dismissable">
-          <div class="d-flex justify-content-between">
-            <div class="text-center pt-3">
-              <p><%= message %></p>
-            </div>
-            <div class="pt-3">
-              <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+          <div class="alert <%= flash_class type %> alert-dismissable">
+            <div class="d-flex justify-content-between">
+              <div class="text-center pt-3">
+                <p><%= message %></p>
+              </div>
+              <div class="pt-3">
+                <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+              </div>
             </div>
           </div>
-        </div>
         <% end %>
         <div class="content">
-          <div class="d-flex justify-content-center">
-            <%= yield %>
-          </div>
+          <%= yield %>
         </div>
-      </div>
+      </section>
     <% else %>
       <div class="main-menu">
         <%= yield %>
       </div>
     <% end %>
   </body>
+  <script>
+    let arrow = document.querySelectorAll(".arrow");
+    for (var i = 0; i < arrow.length; i++) {
+      arrow[i].addEventListener("click", (e)=>{
+       let arrowParent = e.target.parentElement.parentElement;//selecting main parent of arrow
+       arrowParent.classList.toggle("showMenu");
+      });
+    }
+    let sidebar = document.querySelector(".sidebar");
+    let sidebarBtn = document.querySelector(".bx-menu");
+    console.log(sidebarBtn);
+    sidebarBtn.addEventListener("click", ()=>{
+      sidebar.classList.toggle("close");
+    });
+  </script>
+
 </html>

@@ -1,3 +1,5 @@
+
+ /*
  * This is a manifest file that'll be compiled into application.css, which will include all the files
  * listed below.
  *
@@ -17,10 +19,10 @@
 @import 'config/fonts';
 @import 'config/colors';
 @import 'config/bootstrap_variables';
-//
-// // external libraries
+
+// external libraries
 @import 'bootstrap/scss/bootstrap';
 
-// // CSS partials
+// CSS partials
 @import "components/index";
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
