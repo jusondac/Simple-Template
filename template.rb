@@ -106,6 +106,11 @@ def add_home_page
   route "root to:'home#index'"
 end
 
+def copy_template
+  remove_file 'app/assets/stylesheets/application.css'
+  directory 'app', force: true
+end
+
 # Main setup
 add_template_to_source_path
 add_gems
