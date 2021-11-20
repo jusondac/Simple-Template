@@ -123,7 +123,7 @@ after_bundle do
   setup_bootstrap
   setup_users
   setup_table
-
+  copy_template
   add_home_page
 
   puts ""
