@@ -30,6 +30,7 @@ def rails_version
 end
 
 def add_gems
+  gem 'cancancan'
   gem 'awesome_print'
   gem 'devise'
 end
@@ -45,11 +46,13 @@ def setup_bootstrap
   # Update environment.js
   bootstrap_conf = <<-CODE
 const webpack = require('webpack')
-environment.plugins.prepend('Provide',new webpack.ProvidePlugin({
+environment.plugins.prepend('Provide',
+  new webpack.ProvidePlugin({
     $: 'jquery',
     jQuery: 'jquery',
     Popper: ['popper.js', 'default']
-  }))
+  })
+)
   CODE
 
   insert_into_file "config/webpack/environment.js",  bootstrap_conf , before: "module.exports = environment"
@@ -103,14 +106,10 @@ def add_home_page
   route "root to:'home#index'"
 end
 
-def copy_templates
-  directory 'app', force: true
-end
-
 # Main setup
 add_template_to_source_path
 add_gems
-
+ 
 after_bundle do
   rails_command 'db:create'
   rails_command 'db:migrate'
@@ -121,7 +120,6 @@ after_bundle do
   setup_table
 
   add_home_page
-  copy_templates
 
   puts ""
   puts "Your app finnaly done create!! \u{1f355} 🎉 \n"
